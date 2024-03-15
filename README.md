@@ -1,3 +1,3 @@
-## hello-spring
+## Hello-Spring
 
 About Studying Spring Framework
