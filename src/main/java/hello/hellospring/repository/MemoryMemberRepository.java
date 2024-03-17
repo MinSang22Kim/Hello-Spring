@@ -5,10 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-public class MemoryMemberRepository implements  MemberRepository {
 
-    // 실무에서는 동시성 문제 때문에 concurrentHashMap을 씀
-    private static Map<Long, Member> store = new HashMap<>();
+public class MemoryMemberRepository implements MemberRepository{
+
+    private static Map<Long,Member> store = new HashMap<>();
     private static long sequence = 0L;
 
     @Override
