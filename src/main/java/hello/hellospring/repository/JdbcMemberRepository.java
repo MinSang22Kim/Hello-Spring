@@ -16,10 +16,13 @@ public class JdbcMemberRepository implements MemberRepository {
 
     @Override
     public Member save(Member member) {
+
         String sql = "insert into member(name) values(?)";
+
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql,
@@ -42,10 +45,13 @@ public class JdbcMemberRepository implements MemberRepository {
 
     @Override
     public Optional<Member> findById(Long id) {
+
         String sql = "select * from member where id = ?";
+
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql);
@@ -68,10 +74,13 @@ public class JdbcMemberRepository implements MemberRepository {
 
     @Override
     public List<Member> findAll() {
+
         String sql = "select * from member";
+
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql);
@@ -93,10 +102,13 @@ public class JdbcMemberRepository implements MemberRepository {
 
     @Override
     public Optional<Member> findByName(String name) {
+
         String sql = "select * from member where name = ?";
+
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql);
@@ -120,8 +132,7 @@ public class JdbcMemberRepository implements MemberRepository {
         return DataSourceUtils.getConnection(dataSource);
     }
 
-    private void close(Connection conn, PreparedStatement pstmt, ResultSet rs)
-    {
+    private void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
         try {
             if (rs != null) {
                 rs.close();
