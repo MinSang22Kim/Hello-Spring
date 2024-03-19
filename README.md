@@ -1,3 +1,3 @@
 ## Hello-Spring
 
-🍀 About Studying Spring Framework Introduction
+🌱 About Studying Spring Framework Introduction
