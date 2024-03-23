@@ -24,28 +24,25 @@ public class MemberServiceIntegrationTest {
 
     @Test
     void 회원가입() {
-        // given
+        //given
         Member member = new Member();
-        member.setName("hello100");
-
-        // when
+        member.setName("spring");
+        //when
         Long saveId = memberService.join(member);
-
-        // then
+        //then
         Member findMember = memberService.findOne(saveId).get();
         assertThat(member.getName()).isEqualTo(findMember.getName());
     }
 
     @Test
     public void 중복_회원_예외() {
-        // given
+        //given
         Member member1 = new Member();
         member1.setName("spring");
 
         Member member2 = new Member();
         member2.setName("spring");
-
-        // when
+        //when
         memberService.join(member1);
         IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
 
